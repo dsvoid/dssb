@@ -24,7 +24,6 @@ class Builder:
         if not os.path.exists(self.site_dir):
             try:
                 os.makedirs(self.site_dir)
-                os.makedirs(f"{self.site_dir}/build")
                 shutil.copytree(f"{app_dir}/defaults/content/",f"{self.site_dir}/content/")
                 shutil.copytree(f"{app_dir}/defaults/static/",f"{self.site_dir}/static/")
                 shutil.copytree(f"{app_dir}/defaults/templates/",f"{self.site_dir}/templates/")
@@ -34,7 +33,7 @@ class Builder:
         else:
             print(f"[E] Aborted building new site: directory {self.site_name} already exists.")
             return
-        print(f"Initialized new site {site_name}.\nTo build, run the following command:\ndssb build --d testy")
+        print(f"Initialized new site {site_name}.\nTo build, run the following command:\ndssb build -d {site_name}")
 
     def build_site(self,dir):
         if not self.site_name:
