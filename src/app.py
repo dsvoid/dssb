@@ -37,11 +37,11 @@ class Builder:
         print(f"Initialized new site {site_name}.\nTo build, run the following command:\ndssb build -d {site_name}")
 
     def build_site(self,dir):
-        self.clear_build_dir()
         if not self.site_name:
             self.site_name = dir.rstrip("/").split("/")[-1]
         if not self.site_dir:
             self.site_dir = dir.rstrip("/")
+        self.clear_build_dir()
         content_dir = f"{self.site_dir}/content"
         templates_dir = f"{self.site_dir}/templates"
         static_dir = f"{self.site_dir}/static"
