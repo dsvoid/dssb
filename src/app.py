@@ -247,7 +247,7 @@ class Builder:
     def clear_build_dir(self):
         build_dir = f"{self.site_dir}/build/"
         for files in os.listdir(build_dir):
-            path = os.path.join(dir,files)
+            path = os.path.join(build_dir,files)
             try:
                 shutil.rmtree(path)
             except OSError:
