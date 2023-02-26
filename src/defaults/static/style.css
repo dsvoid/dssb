@@ -65,3 +65,8 @@ a {
 a:visited {
     color: #94a;
 }
+
+html {
+    visibility: visible;
+    opacity: 1;
+}

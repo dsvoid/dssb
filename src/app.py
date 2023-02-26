@@ -24,6 +24,7 @@ class Builder:
         if not os.path.exists(self.site_dir):
             try:
                 os.makedirs(self.site_dir)
+                os.makedirs(f"{self.site_dir}/build/")
                 shutil.copytree(f"{app_dir}/defaults/content/",f"{self.site_dir}/content/")
                 shutil.copytree(f"{app_dir}/defaults/static/",f"{self.site_dir}/static/")
                 shutil.copytree(f"{app_dir}/defaults/templates/",f"{self.site_dir}/templates/")
@@ -36,6 +37,7 @@ class Builder:
         print(f"Initialized new site {site_name}.\nTo build, run the following command:\ndssb build -d {site_name}")
 
     def build_site(self,dir):
+        self.clear_build_dir()
         if not self.site_name:
             self.site_name = dir.rstrip("/").split("/")[-1]
         if not self.site_dir:
@@ -241,6 +243,15 @@ class Builder:
         with open(f"{self.site_dir}/templates/{template_file}") as f:
             result = f.read()
         return result
+
+    def clear_build_dir(self):
+        build_dir = f"{self.site_dir}/build/"
+        for files in os.listdir(build_dir):
+            path = os.path.join(dir,files)
+            try:
+                shutil.rmtree(path)
+            except OSError:
+                os.remove(path)
 
 class CommandLine:
 
