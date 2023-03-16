@@ -78,11 +78,13 @@ python3 -m virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-Further instructions assume you are still in the virtual environment
+Further instructions assume you are still in the virtual environment.
 
 When not built, the application is run via `app.py` in the `src` folder.
-    cd src
-    python3 app.py --help
+```
+cd src
+python3 app.py --help
+```
 
 `pyinstaller` can be used to make a binary for the project. The contents fo the `defaults` folder are necessary for the build, so first generate a `.spec` file in the `src` folder:
     pyinstaller app.py --name dssb
