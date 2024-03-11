@@ -8,7 +8,9 @@ The [latest release](https://github.com/dsvoid/dssb/releases) is available here 
 
 ## Usage
 dssb's `init` command will generate all the files necessary to deploy a new website by putting it in a folder named after the site.
-    dssb init new_site
+```
+dssb init new_site
+```
 The contents of a newly initialized site are as follows:
 ```
 new_site/
@@ -28,8 +30,10 @@ new_site/
 The `content` folder contains Markdown (`.md`) files, each one representing a page in your website. The `index.md` file will become the home page, `index.html`: other files will become their own pages.
 
 You can create a new page with the `page` command, which will create a file that dssb's site builder will be able to parse later:
-    cd content/
-    dssb page test_page.md
+```
+cd content/
+dssb page test_page.md
+```
 Each page has metadata. Open `test_page.md` in a text editor to see an example of its formatting:
 ```
 ---
@@ -42,7 +46,9 @@ The metadata is demarcarted from the rest of the file with three dashes (`---`) 
 - `template`: the html file that will be filled with the content of the file. Defaults to the `layout.html` file in the `templates` folder.
 
 dssb is purpose-built for blogging. Using the `post` command creates a markdown file with all the metadata currently necessary for a page to be considered a blog post by the site builder.
-    dssb post test_post.md
+```
+dssb post test_post.md
+```
 Let's run through the metadata:
 ```
 ---
